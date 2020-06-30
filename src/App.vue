@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tasks/>
+    <Tasks v-bind:tasks="tasks"/>
   </div>
 </template>
 
