@@ -23,7 +23,7 @@ import Tasks from './components/Tasks.vue';
           {
             id: 2,
             title: 'Task Two',
-            completed: false
+            completed: true
           },
           {
             id: 3,

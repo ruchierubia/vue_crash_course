@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="task-item" :class="{'is-complete' : task.completed}">
         <p>{{task.title}}</p>
     </div>
 </template>
