@@ -1,15 +1,20 @@
 <template>
     <div>
         <div v-bind:key ="task.id" v-for="task in tasks">
-            <h3>{{task.title}}</h3>
+            <TaskItem/>
         </div>
     </div>
 </template>
 
 <script>
+import TaskItem from './TaskItem.vue';
+
 export default {
     name: 'Tasks',
-    props: ['tasks']
+    props: ['tasks'],
+    components: {
+        TaskItem
+    }
 }
 </script>
 
