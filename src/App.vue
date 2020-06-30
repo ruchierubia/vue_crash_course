@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tasks v-bind:tasks="tasks"/>
+    <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
   </div>
 </template>
 
@@ -32,6 +32,11 @@ import Tasks from './components/Tasks.vue';
           }
         ]
       }
+    },
+    methods: {
+      deleteTask(id) {
+        this.tasks = this.tasks.filter(x => x.id != id);
+      } 
     } 
   }
 </script>
