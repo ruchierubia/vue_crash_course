@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+  <Header/>
     <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
   </div>
 </template>
 
 <script>
-import Tasks from './components/Tasks.vue';
+import Header from './components/layout/Header';
+import Tasks from './components/Tasks';
 
   export default {
     name: 'app',
     components: {
+      Header,
       Tasks
     },
     data() {
