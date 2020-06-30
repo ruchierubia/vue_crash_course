@@ -13,7 +13,7 @@ export default {
     props: ['task'],
     methods: {
         markComplete() {
-
+            this.task.completed =!this.task.completed;
         }
     }
 }
