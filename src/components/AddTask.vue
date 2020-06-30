@@ -1,7 +1,7 @@
 <template>
     <div>
-     <form>
-        <input type="text" name="title" placeholder="Add task...">
+     <form @submit="addTask">
+        <input type="text" v-model="title" name="title" placeholder="Add task...">
         <input type="submit" value="Submit" class="btn">
      </form>
     </div>
@@ -9,8 +9,26 @@
 
 
 <script>
+
 export default {
-    name: 'AddTask'
+    name: 'AddTask',
+    data() {
+        return {
+            title: ''
+        }
+    },
+    methods: {
+        addTask(e) {
+            e.preventDefault();         
+            const newTask = {
+                title: this.title,
+                completed: false
+            }
+            // Emit to parent
+            this.$emit('add-task', newTask);
+            this.title = '';
+        }
+    }
 }
 </script>
 

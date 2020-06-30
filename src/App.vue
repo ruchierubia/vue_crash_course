@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <AddTask/>
+    <AddTask v-on:add-task="addTask"/>
     <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
   </div>
 </template>
@@ -42,7 +42,10 @@ import AddTask from './components/AddTask';
     methods: {
       deleteTask(id) {
         this.tasks = this.tasks.filter(x => x.id != id);
-      } 
+      },
+      addTask(newTask) {
+        this.tasks = [...this.tasks, newTask];
+      }
     } 
   }
 </script>
