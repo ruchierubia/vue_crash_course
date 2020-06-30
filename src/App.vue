@@ -30,12 +30,21 @@ import axios from 'axios';
         this.tasks = this.tasks.filter(x => x.id != id);
       },
       addTask(newTask) {
-        this.tasks = [...this.tasks, newTask];
+        const { title, completed } = newTask;        
+        axios.post('https://jsonplaceholder.typicode.com/todos', {
+          title,
+          completed
+        })
+        .then(res => {
+          console.log(res.data);
+          this.tasks = [...this.tasks, res.data];
+        })
+        .catch(err => console.log(err));
       }
     },
     // 
     created() {
-      axios.get('https://jsonplaceholder.typicode.com/todos')
+      axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
       .then(res => this.tasks = res.data)
       .catch(err =>  console.log(err));
       
