@@ -1,13 +1,21 @@
 <template>
     <div class="task-item" :class="{'is-complete' : task.completed}">
-        <p>{{task.title}}</p>
+        <p>
+            <input type="checkbox" v-on:change="markComplete">
+            {{task.title}}
+        </p>
     </div>
 </template>
 
 <script>
 export default {
     name: 'TaskItem',
-    props: ['task']
+    props: ['task'],
+    methods: {
+        markComplete() {
+
+        }
+    }
 }
 </script>
 
