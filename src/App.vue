@@ -10,6 +10,7 @@
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import axios from 'axios';
 
   export default {
     name: 'app',
@@ -21,21 +22,6 @@ import AddTask from './components/AddTask';
     data() {
       return {
         tasks: [
-          {
-            id: 1,
-            title: 'Task One',
-            completed: false
-          },
-          {
-            id: 2,
-            title: 'Task Two',
-            completed: true
-          },
-          {
-            id: 3,
-            title: 'Task Three',
-            completed: false
-          }
         ]
       }
     },
@@ -46,6 +32,13 @@ import AddTask from './components/AddTask';
       addTask(newTask) {
         this.tasks = [...this.tasks, newTask];
       }
+    },
+    // 
+    created() {
+      axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(res => this.tasks = res.data)
+      .catch(err =>  console.log(err));
+      
     } 
   }
 </script>
