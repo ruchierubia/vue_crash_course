@@ -27,7 +27,12 @@ import axios from 'axios';
     },
     methods: {
       deleteTask(id) {
-        this.tasks = this.tasks.filter(x => x.id != id);
+        axios.delete('https://jsonplaceholder.typicode.com/todos/${id}')
+        .then( res => {
+          console.log(res);
+          this.tasks = this.tasks.filter(x => x.id != id);
+        })
+        .catch()
       },
       addTask(newTask) {
         const { title, completed } = newTask;        
