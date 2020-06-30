@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-  <Header/>
+    <Header/>
+    <AddTask/>
     <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
   export default {
     name: 'app',
     components: {
       Header,
-      Tasks
+      Tasks,
+      AddTask
     },
     data() {
       return {
@@ -55,5 +58,18 @@ import Tasks from './components/Tasks';
   body {
     font-family: Arial, Helvetica, sans-serif;;
     line-height: 1.4;
+  }
+
+  .btn {
+    display: inline-block;
+    border: none;
+    background: #555;
+    color: #fff;
+    padding: 7px 20px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #777;
   }
 </style>
